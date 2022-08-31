@@ -155,9 +155,10 @@ namespace AbstractGeoFigure {
         private GeoFigure[] myArray;
         private string answer, request;
         private bool isCorrect;
-        private GeoFigure[] createAndWriteToArr()
+        private int Request()
         {
-            do {
+            do
+            {
                 Console.Write("Сколько фигур хотите создать?:\nВвод -> ");
                 request = Console.ReadLine();
                 isCorrect = Int32.TryParse(request, out int res);
@@ -170,7 +171,12 @@ namespace AbstractGeoFigure {
                     Console.WriteLine("Неверный ввод. Попробуйте ещё раз: ");
                     isCorrect = false;
                 }
-            }while (isCorrect == false);
+            } while (isCorrect == false);
+            return numberOfFigures;
+        }
+        private GeoFigure[] createAndWriteToArr()
+        {
+            numberOfFigures = Request();
             Console.WriteLine();
             myArray = new GeoFigure[numberOfFigures];
             do
